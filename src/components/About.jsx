@@ -24,62 +24,62 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative pt-36 pb-48 md:pt-44 md:pb-56 overflow-hidden">
+    <section id="about" className="relative overflow-hidden border-t border-slate-100 bg-white py-32 md:py-40 lg:py-48">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-14 md:mb-16"
+          className="mx-auto mb-20 max-w-4xl text-center md:mb-28"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          <h2 className="mb-8 text-4xl font-bold md:text-6xl">
+            <span className="bg-gradient-to-r from-slate-950 to-slate-600 bg-clip-text text-transparent">
               Who We Are
             </span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="mx-auto grid max-w-6xl items-center justify-items-center gap-y-20 md:grid-cols-2 md:gap-x-16 lg:gap-x-24">
           {/* Left Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6 md:pl-4 lg:pl-8"
+            className="mx-auto max-w-xl space-y-12 text-center"
           >
             <motion.p
               variants={itemVariants}
-              className="max-w-xl text-center text-lg leading-relaxed text-gray-300 md:text-left"
+              className="text-center text-lg leading-9 text-slate-700"
             >
               Shrinanda Infotech is a modern IT solutions company focused on innovation, digital transformation, and smart technology services. We help businesses grow through creative software development, modern UI/UX design, branding solutions, cloud integration, and enterprise technologies.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="mt-4 space-y-6 pl-4 sm:pl-6"
+              className="space-y-10"
             >
               <motion.div
                 whileHover={{ x: 8 }}
-                className="flex items-start gap-5 transition-all duration-300"
+                className="flex flex-col items-center gap-6 rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm shadow-slate-200/70 transition-all duration-300 hover:border-orange-300/60"
               >
                 <motion.div
                   whileHover={{ scale: 1.12, rotate: 6 }}
-                  className="w-14 h-14 rounded-lg bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-orange-500/50 flex items-center justify-center flex-shrink-0 mt-1"
+                  className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-lg border border-blue-500/40 bg-gradient-to-br from-blue-500/15 to-orange-500/15"
                 >
-                  <Code2 size={24} className="text-amber-400" />
+                  <Code2 size={24} className="text-blue-600" />
                 </motion.div>
                 <div>
-                  <h3 className="text-white font-bold mb-2 text-lg">Expert Development</h3>
-                  <p className="text-gray-400 text-base">
+                  <h3 className="mb-4 text-lg font-bold text-slate-950">Expert Development</h3>
+                  <p className="text-slate-600 text-base">
                     Cutting-edge coding practices and modern frameworks for robust applications.
                   </p>
                 </div>
@@ -87,17 +87,17 @@ export default function About() {
 
               <motion.div
                 whileHover={{ x: 8 }}
-                className="flex items-start gap-5 transition-all duration-300"
+                className="flex flex-col items-center gap-6 rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm shadow-slate-200/70 transition-all duration-300 hover:border-orange-300/60"
               >
                 <motion.div
                   whileHover={{ scale: 1.12, rotate: 6 }}
-                  className="w-14 h-14 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/50 flex items-center justify-center flex-shrink-0 mt-1 min-w-14"
+                  className="flex h-16 w-16 min-w-16 flex-shrink-0 items-center justify-center rounded-lg border border-orange-500/40 bg-gradient-to-br from-orange-500/15 to-blue-500/15"
                 >
-                  <Zap size={24} className="text-purple-400" />
+                  <Zap size={24} className="text-orange-600" />
                 </motion.div>
                 <div>
-                  <h3 className="text-white font-bold mb-2 text-lg">Fast Delivery</h3>
-                  <p className="text-gray-400 text-base">
+                  <h3 className="mb-4 text-lg font-bold text-slate-950">Fast Delivery</h3>
+                  <p className="text-slate-600 text-base">
                     Agile methodology ensures quick turnaround without compromising quality.
                   </p>
                 </div>
@@ -105,17 +105,17 @@ export default function About() {
 
               <motion.div
                 whileHover={{ x: 8 }}
-                className="flex items-start gap-5 transition-all duration-300"
+                className="flex flex-col items-center gap-6 rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm shadow-slate-200/70 transition-all duration-300 hover:border-orange-300/60"
               >
                 <motion.div
                   whileHover={{ scale: 1.12, rotate: 6 }}
-                  className="w-14 h-14 rounded-lg bg-gradient-to-br from-pink-500/20 to-rose-500/20 border border-pink-500/50 flex items-center justify-center flex-shrink-0 mt-1 min-w-14"
+                  className="flex h-16 w-16 min-w-16 flex-shrink-0 items-center justify-center rounded-lg border border-blue-500/40 bg-gradient-to-br from-blue-500/15 to-orange-500/15"
                 >
-                  <Target size={24} className="text-pink-400" />
+                  <Target size={24} className="text-blue-600" />
                 </motion.div>
                 <div>
-                  <h3 className="text-white font-bold mb-2 text-lg">Client-Focused</h3>
-                  <p className="text-gray-400 text-base">
+                  <h3 className="mb-4 text-lg font-bold text-slate-950">Client-Focused</h3>
+                  <p className="text-slate-600 text-base">
                     Your success is our priority. We deliver solutions tailored to your needs.
                   </p>
                 </div>
@@ -133,10 +133,10 @@ export default function About() {
           >
             <div className="relative">
               {/* Glowing border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-purple-500/30 to-orange-500/30 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/25 via-blue-500/25 to-orange-500/25 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Image Container */}
-              <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-600/30 bg-gradient-to-br from-slate-800/70 to-slate-900/50 p-8 shadow-2xl shadow-slate-950/40 backdrop-blur-sm sm:h-96 lg:h-[27rem]">
+              <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-200 bg-white p-10 shadow-2xl shadow-slate-200/80 sm:h-96 md:p-12 lg:h-[28rem]">
                 <img
                   src={aboutImage}
                   alt="About Shrinanda Infotech"
@@ -144,7 +144,7 @@ export default function About() {
                 />
 
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/30 via-transparent to-transparent rounded-xl" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent rounded-xl" />
               </div>
             </div>
           </motion.div>

@@ -1,18 +1,11 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', 'Inter', 'Montserrat', sans-serif;
-  background: linear-gradient(to bottom, #0f172a, #0f172a);
-  color: #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
@@ -22,7 +15,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
       icon: Zap,
       title: 'Innovative Solutions',
       description: 'Cutting-edge technology and creative approaches',
-      color: 'text-amber-400',
+      color: 'text-orange-500',
     },
     {
       icon: Users,
@@ -49,25 +49,25 @@ export default function WhyChooseUs() {
       icon: Trophy,
       title: 'Modern Technologies',
       description: 'Latest tools and frameworks for optimal results',
-      color: 'text-purple-400',
+      color: 'text-orange-500',
     },
     {
       icon: Star,
       title: 'Client-Centered',
       description: 'Your success and satisfaction is our top priority',
-      color: 'text-pink-400',
+      color: 'text-blue-500',
     },
     {
       icon: Clock,
       title: 'Fast Delivery',
       description: 'Quick turnaround without compromising quality',
-      color: 'text-green-400',
+      color: 'text-orange-500',
     },
     {
       icon: CheckCircle,
       title: '24/7 Support',
       description: 'Always available to assist with your needs',
-      color: 'text-cyan-400',
+      color: 'text-blue-500',
     },
   ];
 
@@ -91,32 +91,32 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="relative overflow-hidden py-32 md:py-44">
+    <section className="relative overflow-hidden border-t border-slate-100 bg-white py-32 md:py-40 lg:py-48">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 py-4 text-center sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 text-center sm:px-8 lg:px-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mx-auto mb-20 max-w-4xl text-center md:mb-24"
+          className="mx-auto mb-20 max-w-4xl text-center md:mb-28"
         >
           <h2 className="mb-8 text-4xl font-bold leading-tight md:text-6xl">
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-950 to-slate-600 bg-clip-text text-transparent">
               Why Choose Shrinanda Infotech
             </span>
           </h2>
-          <p className="mx-auto mb-9 max-w-3xl text-lg leading-relaxed text-gray-400 md:text-xl">
+          <p className="mx-auto mb-10 max-w-3xl text-lg leading-9 text-slate-600 md:text-xl">
             We combine thoughtful strategy, reliable delivery, and modern technology
             to build digital solutions that feel clear, useful, and ready to grow.
           </p>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-amber-500 to-orange-500" />
+          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-orange-500" />
         </motion.div>
 
         {/* Statistics */}
@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-28 grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:mb-32 lg:grid-cols-4 lg:gap-8"
+          className="mb-20 grid w-full max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 md:mb-28 lg:grid-cols-4"
         >
           {[
             { key: 'projects', label: 'Projects Completed', suffix: '+' },
@@ -139,16 +139,16 @@ export default function WhyChooseUs() {
               className="group relative"
             >
               {/* Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
               {/* Card */}
-              <div className="relative flex h-full min-h-44 flex-col items-center justify-center rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-800/50 to-slate-700/30 p-8 text-center backdrop-blur-sm transition-colors group-hover:border-orange-400/40">
+              <div className="relative flex h-full min-h-52 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-10 text-center shadow-lg shadow-slate-200/70 transition-colors group-hover:border-orange-400/40">
                 {/* Counter */}
-                <div className="mb-4 bg-gradient-to-r from-amber-400 via-orange-400 to-orange-500 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+                <div className="mb-6 bg-gradient-to-r from-blue-600 via-orange-500 to-orange-600 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
                   {counters[stat.key]}
                   <span className="text-2xl">{stat.suffix}</span>
                 </div>
-                <p className="text-lg font-medium leading-snug text-gray-400">{stat.label}</p>
+                <p className="text-lg font-medium leading-snug text-slate-600">{stat.label}</p>
 
                 {/* Bottom accent */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -163,7 +163,7 @@ export default function WhyChooseUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-28 grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          className="mb-20 grid w-full max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 md:mb-28 lg:grid-cols-3"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -175,19 +175,19 @@ export default function WhyChooseUs() {
                 className="group relative h-full"
               >
                 {/* Card */}
-                <div className="relative flex h-full min-h-52 flex-col rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-800/35 to-slate-700/20 p-7 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/40 hover:bg-slate-800/45 md:p-8">
+                <div className="relative flex h-full min-h-64 flex-col items-center rounded-xl border border-slate-200 bg-white p-10 text-center shadow-lg shadow-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/40 hover:bg-orange-50/40 md:p-12">
                   {/* Icon container */}
-                  <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-700/60 to-slate-600/30 transition-all group-hover:from-slate-700 group-hover:to-slate-600">
+                  <div className="mb-8 flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-slate-100 to-white transition-all group-hover:from-orange-50 group-hover:to-white">
                     <Icon size={27} className={feature.color} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="mb-3 text-2xl font-bold leading-tight text-white">
+                  <h3 className="mb-5 text-xl font-bold leading-tight text-slate-950">
                     {feature.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="max-w-sm text-lg leading-relaxed text-gray-400">
+                  <p className="max-w-sm text-base leading-relaxed text-slate-600">
                     {feature.description}
                   </p>
 
@@ -205,18 +205,18 @@ export default function WhyChooseUs() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="w-full max-w-5xl rounded-2xl border border-slate-600/30 bg-gradient-to-r from-orange-500/10 via-purple-500/10 to-orange-500/10 px-8 py-14 text-center md:px-14 md:py-16"
+          className="w-full max-w-6xl rounded-2xl border border-slate-200 bg-white px-10 py-20 text-center shadow-xl shadow-slate-200/70 md:px-16 md:py-24"
         >
-          <h3 className="mb-5 text-3xl font-bold text-white">
+          <h3 className="mb-8 text-3xl font-bold text-slate-950">
             Ready to Partner with Us?
           </h3>
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300">
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-9 text-slate-600">
             Join 25+ companies that have transformed their businesses with our innovative IT solutions and dedicated support.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 transition-all duration-300"
+            className="rounded-lg bg-gradient-to-r from-blue-600 to-orange-600 px-10 py-4 font-bold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/50"
           >
             Start Your Project
           </motion.button>
