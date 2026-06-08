@@ -30,7 +30,7 @@ export default function Navbar() {
             <img
               src={logoMain}
               alt="Shrinanda Infotech"
-              className="h-10 w-auto md:h-12 lg:h-14"
+              className="h-9 w-auto md:h-12 lg:h-14"
             />
           </motion.div>
         </div>
