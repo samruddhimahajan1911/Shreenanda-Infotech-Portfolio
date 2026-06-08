@@ -32,14 +32,12 @@ export default function Footer() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
       y: 0,
@@ -48,38 +46,42 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-slate-200 bg-white py-24 md:py-28 lg:py-32">
-      {/* Background decoration */}
+    <footer className="relative -mt-10 overflow-hidden border-t border-slate-200 bg-white py-20 md:-mt-12 md:py-24 lg:-mt-16 lg:py-28">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-gradient-to-br from-orange-500/5 to-transparent blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-gradient-to-tl from-blue-500/5 to-transparent blur-3xl" />
+        <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-gradient-to-br from-orange-500/5 to-transparent blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-gradient-to-tl from-blue-500/5 to-transparent blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        {/* Main Footer Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid justify-items-center gap-y-14 text-center lg:grid-cols-[1.3fr_2fr_1.2fr] lg:gap-x-16 xl:gap-x-20"
+          className="grid justify-items-center gap-y-12 text-center lg:grid-cols-[1.3fr_2fr_1.2fr] lg:gap-x-14 xl:gap-x-16"
         >
-          {/* Brand Section */}
           <motion.div
             variants={itemVariants}
             className="mx-auto flex max-w-sm flex-col items-center text-center"
           >
-            <img src={logoShort} alt="Shrinanda Infotech" className="mb-8 h-14 w-auto" />
-            <p className="mb-8 text-base leading-8 text-slate-600">
+            <img
+              src={logoShort}
+              alt="Shrinanda Infotech"
+              className="mb-6 h-14 w-auto"
+            />
+
+            <p className="mb-6 text-base leading-8 text-slate-600">
               Empowering businesses with innovative technology solutions for
               digital transformation.
             </p>
+
             <div className="flex justify-center gap-5">
-              {socialLinks.map((social, index) => {
+              {socialLinks.map((social) => {
                 const Icon = social.icon;
+
                 return (
                   <motion.a
-                    key={index}
+                    key={social.label}
                     whileHover={{ scale: 1.15, rotate: 8 }}
                     whileTap={{ scale: 0.95 }}
                     href={social.href}
@@ -93,17 +95,19 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Links Sections */}
           <motion.div
             variants={itemVariants}
             className="grid justify-items-center gap-y-10 text-center sm:grid-cols-3 sm:gap-x-12"
           >
             {Object.entries(footerLinks).map(([section, links]) => (
               <div key={section}>
-                <h4 className="mb-6 text-lg font-bold text-slate-950">{section}</h4>
-                <ul className="space-y-4">
-                  {links.map((link, index) => (
-                    <li key={index}>
+                <h4 className="mb-5 text-lg font-bold text-slate-950">
+                  {section}
+                </h4>
+
+                <ul className="space-y-3">
+                  {links.map((link) => (
+                    <li key={link}>
                       <motion.a
                         whileHover={{ x: 5 }}
                         href="#"
@@ -118,22 +122,27 @@ export default function Footer() {
             ))}
           </motion.div>
 
-          {/* Contact Info */}
-          <motion.div
-            variants={itemVariants}
-            className="mx-auto text-center"
-          >
-            <h4 className="mb-6 text-lg font-bold text-slate-950">Contact Info</h4>
-            <ul className="space-y-5">
-              <li className="flex flex-col items-center gap-3">
+          <motion.div variants={itemVariants} className="mx-auto text-center">
+            <h4 className="mb-5 text-lg font-bold text-slate-950">
+              Contact Info
+            </h4>
+
+            <ul className="space-y-4">
+              <li className="flex flex-col items-center gap-2">
                 <Mail size={20} className="shrink-0 text-blue-600" />
-                <span className="text-base text-slate-600">shrinandainfotech@gmail.com</span>
+                <span className="text-base text-slate-600">
+                  shrinandainfotech@gmail.com
+                </span>
               </li>
-              <li className="flex flex-col items-center gap-3">
+
+              <li className="flex flex-col items-center gap-2">
                 <Phone size={20} className="shrink-0 text-orange-600" />
-                <span className="text-base text-slate-600">+91 70389 11897</span>
+                <span className="text-base text-slate-600">
+                  +91 70389 11897
+                </span>
               </li>
-              <li className="flex flex-col items-center gap-3">
+
+              <li className="flex flex-col items-center gap-2">
                 <MapPin size={20} className="shrink-0 text-blue-600" />
                 <span className="text-base text-slate-600">Mumbai, India</span>
               </li>
@@ -141,22 +150,20 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
-        {/* Divider */}
-        <div className="my-14 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="my-12 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-        {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center gap-6 text-center md:flex-row"
+          className="flex flex-col items-center justify-center gap-5 text-center md:flex-row"
         >
           <p className="text-base text-slate-600">
             Copyright {currentYear} Shrinanda Infotech. All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-10 text-base">
+          <div className="flex flex-wrap justify-center gap-8 text-base">
             <motion.a
               whileHover={{ x: 2 }}
               href="#"
@@ -164,6 +171,7 @@ export default function Footer() {
             >
               Privacy Policy
             </motion.a>
+
             <motion.a
               whileHover={{ x: 2 }}
               href="#"
@@ -174,13 +182,12 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Scroll to top button */}
         <motion.button
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Scroll to top"
-          className="fixed right-6 bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-orange-600 text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/50 md:right-8 md:bottom-8"
+          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-orange-600 text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/50 md:bottom-8 md:right-8"
         >
           <ArrowUp size={24} />
         </motion.button>

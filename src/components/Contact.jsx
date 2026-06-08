@@ -14,7 +14,7 @@ import {
 
 const CONTACT_EMAIL = 'shrinandainfotech@gmail.com';
 const CONTACT_PHONE = '+91 70389 11897';
-const CONTACT_WHATSAPP = '91 70389 11897';
+const CONTACT_WHATSAPP = '917038911897';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ export default function Contact() {
     email: '',
     message: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -29,6 +30,7 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -66,7 +68,12 @@ export default function Contact() {
         throw new Error('Unable to send message');
       }
 
-      setWhatsappUrl(`https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(messageText)}`);
+      setWhatsappUrl(
+        `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(
+          messageText
+        )}`
+      );
+
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setSubmitted(false), 7000);
@@ -84,7 +91,7 @@ export default function Contact() {
       value: CONTACT_EMAIL,
       color: 'from-blue-500/20 to-blue-600/20',
       borderColor: 'border-blue-500/30',
-      iconColor: 'text-blue-400',
+      iconColor: 'text-blue-500',
     },
     {
       icon: Phone,
@@ -100,7 +107,7 @@ export default function Contact() {
       value: 'Mumbai, India',
       color: 'from-orange-500/20 to-orange-600/20',
       borderColor: 'border-orange-500/30',
-      iconColor: 'text-orange-400',
+      iconColor: 'text-orange-500',
     },
   ];
 
@@ -111,113 +118,113 @@ export default function Contact() {
     { name: 'Instagram', icon: Camera },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section id="contact" className="relative overflow-hidden border-t border-slate-100 bg-white py-32 md:py-40 lg:py-48">
-      {/* Background */}
+    <section
+      id="contact"
+      className="relative -mt-28 overflow-hidden bg-white pt-20 pb-16 md:-mt-32 md:pt-20 md:pb-20 lg:-mt-36 lg:pt-20 lg:pb-24"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/40 to-white">
-        <div className="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 h-96 w-96 rounded-full bg-gradient-to-tl from-orange-500/10 to-transparent blur-3xl" />
+        <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 text-center sm:px-8 lg:px-10">
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mx-auto mb-20 max-w-4xl text-center md:mb-28"
+          className="mx-auto mb-10 max-w-4xl text-center"
         >
-          <h2 className="mb-8 text-center text-5xl font-bold leading-tight md:text-6xl">
+          <div className="mb-3 inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-600">
+            Contact Us
+          </div>
+
+          <h2 className="mb-4 text-center text-3xl font-bold leading-tight md:text-5xl">
             <span className="bg-gradient-to-r from-slate-950 to-slate-600 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="mx-auto mb-10 max-w-3xl text-center text-lg leading-9 text-slate-600 md:text-xl">
+
+          <p className="mx-auto mb-5 max-w-3xl text-center text-base leading-8 text-slate-600 md:text-lg">
             Have a project in mind? Let&apos;s discuss how we can help your
             business grow. Reach out to us today!
           </p>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-orange-500" />
+
+          <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-orange-500" />
         </motion.div>
 
-        {/* Contact Info Cards */}
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mx-auto mb-20 grid w-full max-w-6xl grid-cols-1 justify-items-center gap-10 md:mb-28 md:grid-cols-3"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 },
+            },
+          }}
+          className="mx-auto mb-10 grid w-full max-w-6xl grid-cols-1 justify-items-center gap-6 md:grid-cols-3"
         >
-          {contactInfo.map((info, index) => {
+          {contactInfo.map((info) => {
             const Icon = info.icon;
+
             return (
               <motion.div
-                key={index}
-                variants={itemVariants}
+                key={info.title}
+                variants={{
+                  hidden: { opacity: 0, y: 18 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
                 whileHover={{ y: -5 }}
                 className="group relative h-full w-full max-w-sm"
               >
-                {/* Glow */}
                 <div
-                  className={`absolute inset-0 rounded-xl bg-gradient-to-r ${info.color} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100`}
+                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${info.color} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100`}
                 />
 
-                {/* Card */}
                 <div
-                  className={`relative flex h-full min-h-64 flex-col items-center rounded-xl border ${info.borderColor} bg-white p-10 text-center shadow-lg shadow-slate-200/70 transition-all duration-300 md:p-12`}
+                  className={`relative flex h-full min-h-[210px] flex-col items-center rounded-2xl border ${info.borderColor} bg-white p-7 text-center shadow-lg shadow-slate-200/70 transition-all duration-300 md:p-8`}
                 >
-                  <div className={`absolute left-0 right-0 top-0 h-1 bg-gradient-to-r ${info.color} opacity-0 transition-opacity group-hover:opacity-100`} />
                   <motion.div
-                    whileHover={{ scale: 1.2, rotate: 12 }}
-                    className={`mb-8 flex h-16 w-16 items-center justify-center rounded-lg border ${info.borderColor} bg-gradient-to-br ${info.color}`}
+                    whileHover={{ scale: 1.15, rotate: 8 }}
+                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl border ${info.borderColor} bg-gradient-to-br ${info.color}`}
                   >
-                    <Icon size={30} className={info.iconColor} />
+                    <Icon size={26} className={info.iconColor} />
                   </motion.div>
-                  <h3 className="mb-5 text-xl font-bold text-slate-950 transition-colors group-hover:text-orange-600">
+
+                  <h3 className="mb-3 text-xl font-bold text-slate-950 transition-colors group-hover:text-orange-600">
                     {info.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-slate-600">{info.value}</p>
+
+                  <p className="text-base leading-relaxed text-slate-600">
+                    {info.value}
+                  </p>
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
 
-        {/* Contact Form and Info */}
-        <div className="grid w-full max-w-6xl grid-cols-1 justify-items-center gap-y-10 text-center lg:grid-cols-[1.2fr_0.8fr] lg:gap-x-12 xl:gap-x-16">
-          {/* Form */}
+        <div className="grid w-full max-w-6xl grid-cols-1 justify-items-center gap-y-8 text-center lg:grid-cols-[1.2fr_0.8fr] lg:gap-x-10 xl:gap-x-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="group relative h-full"
+            className="group relative h-full w-full"
           >
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/20 to-blue-500/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 to-blue-500/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
-            <div className="relative h-full w-full rounded-xl border border-orange-500/30 bg-white p-10 text-center shadow-xl shadow-slate-200/70 md:p-12 lg:p-14">
-              <form onSubmit={handleSubmit} className="space-y-9">
+            <div className="relative h-full w-full rounded-2xl border border-orange-500/30 bg-white p-7 text-center shadow-xl shadow-slate-200/70 md:p-8 lg:p-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="mb-4 block text-center text-base font-semibold text-slate-950">
+                  <label className="mb-3 block text-center text-base font-semibold text-slate-950">
                     Your Name
                   </label>
                   <input
@@ -226,13 +233,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                    className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
                     placeholder="John Doe"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-4 block text-center text-base font-semibold text-slate-950">
+                  <label className="mb-3 block text-center text-base font-semibold text-slate-950">
                     Email Address
                   </label>
                   <input
@@ -241,13 +248,13 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                    className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-4 block text-center text-base font-semibold text-slate-950">
+                  <label className="mb-3 block text-center text-base font-semibold text-slate-950">
                     Message
                   </label>
                   <textarea
@@ -255,8 +262,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="6"
-                    className="w-full resize-none rounded-lg border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                    rows="5"
+                    className="w-full resize-none rounded-xl border border-slate-300 bg-white px-5 py-4 text-base text-slate-950 placeholder-slate-400 transition-all duration-300 focus:border-orange-500/70 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -266,7 +273,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.97 }}
                   type="submit"
                   disabled={submitting}
-                  className="flex w-full items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-blue-600 to-orange-600 px-10 py-5 text-lg font-bold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/50"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-orange-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/50 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   <Send size={20} />
                   {submitting ? 'Sending...' : 'Send Message'}
@@ -276,13 +283,13 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="rounded-lg border border-green-500/50 bg-green-500/20 p-8 text-center text-green-300"
+                    className="rounded-xl border border-green-500/40 bg-green-50 p-5 text-center text-green-700"
                   >
                     <div className="flex items-center justify-center gap-3">
                       <CheckCircle size={20} />
                       <span>Message sent to email. Send it on WhatsApp too.</span>
                     </div>
+
                     {whatsappUrl && (
                       <a
                         href={whatsappUrl}
@@ -300,7 +307,7 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-lg border border-red-500/50 bg-red-500/20 p-8 text-center text-red-300"
+                    className="rounded-xl border border-red-500/40 bg-red-50 p-5 text-center text-red-700"
                   >
                     {error}
                   </motion.div>
@@ -309,47 +316,59 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Social and Hours */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid w-full gap-y-10"
+            className="grid w-full gap-y-8"
           >
-            <div className="rounded-xl border border-blue-500/30 bg-white p-10 text-center shadow-lg shadow-slate-200/70 md:p-12">
-              <h3 className="mb-8 text-2xl font-bold text-slate-950">Connect With Us</h3>
-              <div className="flex flex-wrap justify-center gap-6">
-                {socialLinks.map((social, index) => {
+            <div className="rounded-2xl border border-blue-500/30 bg-white p-7 text-center shadow-lg shadow-slate-200/70 md:p-8">
+              <h3 className="mb-6 text-2xl font-bold text-slate-950">
+                Connect With Us
+              </h3>
+
+              <div className="flex flex-wrap justify-center gap-5">
+                {socialLinks.map((social) => {
                   const Icon = social.icon;
+
                   return (
                     <motion.a
-                      key={index}
+                      key={social.name}
                       whileHover={{ scale: 1.15, rotate: 8 }}
                       whileTap={{ scale: 0.95 }}
                       href="#"
                       aria-label={social.name}
-                      className="flex h-14 w-14 items-center justify-center rounded-lg border border-slate-200 bg-gradient-to-br from-white to-slate-50 text-slate-600 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-700"
+                      className="flex h-13 w-13 items-center justify-center rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-4 py-4 text-slate-600 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-700"
                     >
-                      <Icon size={24} />
+                      <Icon size={23} />
                     </motion.a>
                   );
                 })}
               </div>
             </div>
 
-            <div className="rounded-xl border border-orange-500/30 bg-white p-10 text-center shadow-lg shadow-slate-200/70 md:p-12">
-              <h3 className="mb-8 text-2xl font-bold text-slate-950">Business Hours</h3>
-              <div className="space-y-7 text-center text-slate-600">
-                <p className="flex flex-col items-center justify-center gap-3">
+            <div className="rounded-2xl border border-orange-500/30 bg-white p-7 text-center shadow-lg shadow-slate-200/70 md:p-8">
+              <h3 className="mb-6 text-2xl font-bold text-slate-950">
+                Business Hours
+              </h3>
+
+              <div className="space-y-5 text-center text-slate-600">
+                <p className="flex flex-col items-center justify-center gap-2">
                   <span>Monday - Friday</span>
-                  <span className="font-semibold text-orange-600">9:00 AM - 6:00 PM</span>
+                  <span className="font-semibold text-orange-600">
+                    9:00 AM - 6:00 PM
+                  </span>
                 </p>
-                <p className="flex flex-col items-center justify-center gap-3">
+
+                <p className="flex flex-col items-center justify-center gap-2">
                   <span>Saturday</span>
-                  <span className="font-semibold text-orange-600">10:00 AM - 4:00 PM</span>
+                  <span className="font-semibold text-orange-600">
+                    10:00 AM - 4:00 PM
+                  </span>
                 </p>
-                <p className="flex flex-col items-center justify-center gap-3">
+
+                <p className="flex flex-col items-center justify-center gap-2">
                   <span>Sunday</span>
                   <span className="font-semibold text-gray-500">Closed</span>
                 </p>
